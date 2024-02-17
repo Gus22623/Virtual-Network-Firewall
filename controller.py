@@ -50,7 +50,6 @@ class Controller (object):
 
   def s1_setup(self):
     #put switch 1 rules here
-    # As in part2 let packets flow through these switches
     msg = of.ofp_flow_mod()
     msg.priority = 10
     msg.actions.append(of.ofp_action_output(port = of.OFPP_FLOOD))
@@ -147,7 +146,6 @@ class Controller (object):
     self.connection.send(msg)
 
   #handle individual ARP packets
-  #not needed for part 3 (USE RULES!)
   #causes the switch to output packet_in on out_port
   def resend_packet(self, packet_in, out_port):
     msg = of.ofp_packet_out()
